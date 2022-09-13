@@ -37,7 +37,11 @@ const createWarningComment = (warnings: string[]) => {
   ];
   const tableHeader = `| Warning | Filepath | Line # | ${encodedNewline}| --- | --- | --- | `;
   commentMessage.push(tableHeader);
+
   warnings.forEach((w) => commentMessage.push(w));
+
+  const linkToDocs = `Reference the [Contributing Docs for Dashboards]("https://github.com/newrelic/newrelic-quickstarts/blob/main/CONTRIBUTING.md#dashboards") for more information. ${encodedNewline}`;
+  commentMessage.push(linkToDocs);
   return commentMessage.join(encodedNewline);
 };
 
