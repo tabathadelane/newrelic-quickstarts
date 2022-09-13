@@ -40,7 +40,7 @@ const createWarningComment = (warnings: string[]) => {
 
   warnings.forEach((w) => commentMessage.push(w));
 
-  const linkToDocs = `${encodedNewline} Reference the [Contributing Docs for Dashboards]("https://github.com/newrelic/newrelic-quickstarts/blob/main/CONTRIBUTING.md#dashboards") for more information. ${encodedNewline}`;
+  const linkToDocs = `${encodedNewline}Reference the [Contributing Docs for Dashboards](https://github.com/newrelic/newrelic-quickstarts/blob/main/CONTRIBUTING.md#dashboards) for more information. ${encodedNewline}`;
   commentMessage.push(linkToDocs);
   return commentMessage.join(encodedNewline);
 };
@@ -76,7 +76,6 @@ const runHelper = async (prUrl?: string, token?: string): Promise<boolean> => {
     });
     const responseJSON = await response.json();
     const dashLines = JSON.stringify(responseJSON, null, 2).split('\n');
-    console.log(dashLines);
 
     dashLines.forEach((line, lineNumber) => {
       const output = checkLine(line);
